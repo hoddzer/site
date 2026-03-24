@@ -2,6 +2,7 @@
   "name": "hoddzer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hoddzer.github.io/site",
   "dependencies": {
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
@@ -21,13 +22,11 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "dev": "npm run build && serve -s build -l 3003",
-    "start": "npm run build && serve -s build -l 3003",
+    "dev": "PUBLIC_URL=. npm run build && serve -s build -l 3003",
+    "start": "PUBLIC_URL=. npm run build && serve -s build -l 3003",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "PUBLIC_URL=/site npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
