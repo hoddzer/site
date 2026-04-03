@@ -1,122 +1,72 @@
+import React from 'react';
 import {
-  ArrowRight,
-  BarChart3,
-  CalendarDays,
-  Disc3,
-  Gamepad2,
+  // Gamepad2,
   Globe,
   Instagram,
-  LayoutGrid,
   Music2,
-  Send,
-  ShieldCheck,
-  Star,
-  Target,
+  // Send,
   Twitch,
   Twitter,
-  Wrench,
   Youtube,
 } from 'lucide-react';
 
-const sections = [
-  {
-    title: 'Pagina inicial',
-    description: 'Entrada principal do projeto com acesso rapido aos blocos centrais.',
-    icon: LayoutGrid,
-    accent: 'accent-indigo',
-  },
-  {
-    title: 'Analises',
-    description: 'Espaco reservado para resumos, tendencias e acompanhamento de dados.',
-    icon: BarChart3,
-    accent: 'accent-emerald',
-  },
-  {
-    title: 'Planejamento',
-    description: 'Area para agenda, organizacao de rotinas e acompanhamento semanal.',
-    icon: CalendarDays,
-    accent: 'accent-rose',
-  },
-  {
-    title: 'Ferramentas',
-    description: 'Bloco preparado para calculadoras, utilitarios e recursos auxiliares.',
-    icon: Wrench,
-    accent: 'accent-amber',
-  },
-];
+interface SocialLink {
+  title: string;
+  href: string;
+  icon: React.ElementType;
+  color: string;
+}
 
-const highlights = [
+const socialLinks: SocialLink[] = [
   {
-    title: 'Estrutura clara',
-    text: 'Home montada com secoes simples para facilitar a expansao do projeto.',
-    icon: Target,
+    title: 'TikTok',
+    href: 'https://www.tiktok.com/@hoddzer',
+    icon: Music2,
+    color: '#d946ef',
   },
   {
-    title: 'Base estavel',
-    text: 'Layout funcionando no ambiente atual sem depender do dev server quebrado.',
-    icon: ShieldCheck,
+    title: 'YouTube',
+    href: 'https://www.youtube.com/@hoddzer',
+    icon: Youtube,
+    color: '#ef4444',
   },
   {
-    title: 'Visual definido',
-    text: 'Paleta escura com acentos fortes e icones consistentes para o sistema.',
-    icon: Star,
+    title: 'Twitter / X',
+    href: 'https://x.com/hoddzer',
+    icon: Twitter,
+    color: '#0ea5e9',
   },
+  {
+    title: 'Twitch',
+    href: 'https://www.twitch.tv/hoddzer',
+    icon: Twitch,
+    color: '#a855f7',
+  },
+  {
+    title: 'Instagram',
+    href: 'https://www.instagram.com/hoddzer',
+    icon: Instagram,
+    color: '#ec4899',
+  },
+  {
+    title: 'Supersocial',
+    href: 'https://supersocial.onelink.me/KasW/i93vco1m',
+    icon: Globe,
+    color: '#3b82f6',
+  },
+  // {
+  //   title: 'Telegram',
+  //   href: 'https://t.me/hoddzer',
+  //   icon: Send,
+  //   color: '#38bdf8',
+  // },
+  // {
+  //   title: 'Discord',
+  //   href: 'https://discord.gg/uZz34ysqqs',
+  //   icon: Gamepad2,
+  //   color: '#6366f1',
+  // },
 ];
-
-const socialGroups = {
-  featured: [
-    {
-      title: 'TikTok',
-      href: 'https://www.tiktok.com/@hoddzer',
-      icon: Music2,
-      accent: 'social-card--fuchsia',
-    },
-    {
-      title: 'YouTube',
-      href: 'https://www.youtube.com/@hoddzer',
-      icon: Youtube,
-      accent: 'social-card--red',
-    },
-    {
-      title: 'Twitter',
-      href: 'https://x.com/hoddzer',
-      icon: Twitter,
-      accent: 'social-card--sky',
-    },
-    {
-      title: 'Twitch',
-      href: 'https://www.twitch.tv/hoddzer',
-      icon: Twitch,
-      accent: 'social-card--purple',
-    },
-  ],
-  secondary: [
-    {
-      title: 'Instagram',
-      href: 'https://www.instagram.com/hoddzer',
-      icon: Instagram,
-      accent: 'social-card--pink',
-    },
-    {
-      title: 'Supersocial',
-      href: 'https://supersocial.onelink.me/KasW/i93vco1m',
-      icon: Globe,
-      accent: 'social-card--blue',
-    },
-    {
-      title: 'Telegram',
-      href: 'https://t.me/hoddzer',
-      icon: Send,
-      accent: 'social-card--sky',
-    },
-    {
-      title: 'Discord',
-      href: 'https://discord.gg/uZz34ysqqs',
-      icon: Gamepad2,
-      accent: 'social-card--indigo',
-    },
-  ],
-};
 
 function App() {
   return (
@@ -136,11 +86,9 @@ function App() {
                 HODD<span>ZER</span>
               </h1>
               <p className="hero__subtitle">
-                Estrutura inicial da home com visual definido, blocos organizados
-                e base pronta para evoluir.
+                Canais oficiais · Siga e fique por dentro
               </p>
             </div>
-
             <div className="hero__equity">
               <div className="hero__equity-label">
                 <span>Status</span>
@@ -150,151 +98,41 @@ function App() {
           </div>
         </header>
 
-        <main className="sections">
-          <section className="section-card accent-indigo">
-            <div className="section-card__header">
-              <div className="section-card__title-wrap">
-                <div className="section-card__icon">
-                  <LayoutGrid size={28} />
-                </div>
-                <div>
-                  <h2 className="section-card__title">Visao geral</h2>
-                  <p className="section-card__description">
-                    Estrutura basica da pagina inicial
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="hero-summary-grid">
-              {highlights.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <article className="link-card" key={item.title}>
-                    <div className="link-card__top">
-                      <div className="link-card__icon">
-                        <Icon size={16} />
-                      </div>
-                      <span className="link-card__title">{item.title}</span>
-                    </div>
-                    <div className="link-card__bottom">
-                      <p>{item.text}</p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-
-          <section className="section-card accent-purple">
-            <div className="section-card__header">
-              <div className="section-card__title-wrap">
-                <div className="section-card__icon">
-                  <Star size={28} />
-                </div>
-                <div>
-                  <h2 className="section-card__title">Modulos base</h2>
-                  <p className="section-card__description">
-                    Areas iniciais reservadas para o crescimento do site
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="link-grid">
-              {sections.map((section) => {
-                const Icon = section.icon;
-
-                return (
-                  <article className={`link-card ${section.accent}`} key={section.title}>
-                    <div className="link-card__top">
-                      <div className="link-card__icon">
-                        <Icon size={16} />
-                      </div>
-                      <span className="link-card__title">{section.title}</span>
-                    </div>
-                    <div className="link-card__bottom">
-                      <p>{section.description}</p>
-                      <ArrowRight size={12} />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
+        <main style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '480px', margin: '10px auto', width: '100%' }}>
+          {socialLinks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '14px',
+                  padding: '14px 18px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.04)',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  fontSize: '15px',
+                  fontWeight: 500,
+                  transition: 'background 0.15s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.04)')}
+              >
+                <span style={{ color: item.color, display: 'flex', alignItems: 'center' }}>
+                  <Icon size={20} />
+                </span>
+                <span style={{ flex: 1 }}>{item.title}</span>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, flexShrink: 0 }} />
+              </a>
+            );
+          })}
         </main>
-
-        <section className="system-footer">
-          <div className="system-footer__meta">
-            <div>
-              <span className="system-footer__label">Projeto</span>
-              <strong>home-base</strong>
-            </div>
-            <div>
-              <span className="system-footer__label">Deploy</span>
-              <strong>github-pages /site</strong>
-            </div>
-          </div>
-          <span className="system-footer__cta">
-            Estrutura inicial
-            <ArrowRight size={14} />
-          </span>
-        </section>
-
-        <section className="social-section">
-          <div className="social-section__header">
-            <div className="section-card__title-wrap">
-              <div className="section-card__icon">
-                <Disc3 size={28} />
-              </div>
-              <div>
-                <h2 className="section-card__title">Siga-nos nas redes</h2>
-                <p className="section-card__description">
-                  Canais oficiais do Hoddzer
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="social-row">
-            {socialGroups.featured.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <a
-                  className={`social-card ${item.accent}`}
-                  href={item.href}
-                  key={item.title}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon size={18} />
-                  <span>{item.title}</span>
-                </a>
-              );
-            })}
-          </div>
-
-          <div className="social-row social-row--secondary">
-            {socialGroups.secondary.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <a
-                  className={`social-card ${item.accent}`}
-                  href={item.href}
-                  key={item.title}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon size={18} />
-                  <span>{item.title}</span>
-                </a>
-              );
-            })}
-          </div>
-        </section>
 
         <footer className="page-footer">
           <p>Hoddzer base interface</p>
